@@ -6,7 +6,7 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/27 13:56:26 by nbouchin          #+#    #+#              #
-#    Updated: 2017/07/27 16:08:56 by nbouchin         ###   ########.fr        #
+#    Updated: 2017/07/27 16:18:42 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,10 +114,12 @@ $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)libft.h
 
 clean:
 	@rm -rf objs
+	@echo $(RED)"libft/objs directory clean"$(NC)
 	@make -C srcs/ft_printf clean
 
 fclean: clean
 	@rm -rf $(NAME)
+	@echo $(RED)"libft.a deleted"$(NC)
 	@make -C srcs/ft_printf fclean
 
 re: fclean all

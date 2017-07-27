@@ -6,7 +6,7 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/27 13:56:26 by nbouchin          #+#    #+#              #
-#    Updated: 2017/07/27 15:50:36 by nbouchin         ###   ########.fr        #
+#    Updated: 2017/07/27 16:17:17 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,9 +66,11 @@ $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)libftprintf.h
 
 clean:
 	@rm -rf objs
+	@echo $(RED)"ft_printf/objs directory clean"$(NC)
 
 fclean: clean
 	@rm -rf $(NAME)
+	@echo $(RED)"ft_printf/libftprintf.a clean"$(CN)
 
 re: fclean all
 
