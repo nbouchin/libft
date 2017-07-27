@@ -6,7 +6,7 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/27 13:56:26 by nbouchin          #+#    #+#              #
-#    Updated: 2017/07/27 15:27:14 by nbouchin         ###   ########.fr        #
+#    Updated: 2017/07/27 15:59:29 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,6 +103,7 @@ $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 	@echo $(GRN)"libft.a created"$(NC)
+	@make -C srcs/ft_printf
 
 $(OBJDIR):
 	@mkdir -p objs objs/str objs/put objs/num objs/mem objs/lst objs/conv objs/check
@@ -113,9 +114,11 @@ $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)libft.h
 
 clean:
 	@rm -rf objs
+	@make -C srcs/ft_printf clean
 
 fclean: clean
 	@rm -rf $(NAME)
+	@make -C srcs/ft_printf fclean
 
 re: fclean all
 

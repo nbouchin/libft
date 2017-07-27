@@ -6,11 +6,11 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 13:33:41 by nbouchin          #+#    #+#             */
-/*   Updated: 2017/05/23 15:39:32 by nbouchin         ###   ########.fr       */
+/*   Updated: 2017/07/27 15:51:02 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/includes/libftprintf.h"
+#include "libftprintf.h"
 
 void	reset_flag(t_flag *flag)
 {
