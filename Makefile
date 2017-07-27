@@ -6,7 +6,7 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/27 13:56:26 by nbouchin          #+#    #+#              #
-#    Updated: 2017/07/27 15:59:29 by nbouchin         ###   ########.fr        #
+#    Updated: 2017/07/27 16:08:56 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ SRC		=	check/ft_isalnum.c				\
 			conv/ft_itoa.c					\
 			conv/ft_tolower.c				\
 			conv/ft_toupper.c				\
-			ft_sort_params.c				\
-			ft_tabcpy.c						\
-			get_next_line.c					\
+			tab/ft_sort_params.c				\
+			tab/ft_tabcpy.c						\
+			get_next_line/get_next_line.c					\
 			lst/ft_lstadd.c					\
 			lst/ft_lstaddend.c				\
 			lst/ft_lstdel.c					\
@@ -106,7 +106,7 @@ $(NAME): $(OBJS)
 	@make -C srcs/ft_printf
 
 $(OBJDIR):
-	@mkdir -p objs objs/str objs/put objs/num objs/mem objs/lst objs/conv objs/check
+	@mkdir -p objs objs/get_next_line objs/str objs/put objs/num objs/mem objs/lst objs/conv objs/check objs/tab
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)libft.h
 	@$(CC) -o $@ -c $< $(FLAGS) -I $(HEADER)
