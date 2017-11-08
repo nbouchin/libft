@@ -6,12 +6,12 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/27 13:56:26 by nbouchin          #+#    #+#              #
-#    Updated: 2017/07/27 16:18:42 by nbouchin         ###   ########.fr        #
+#    Updated: 2017/11/08 21:42:07 by leukondor        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = 	libft.a
-CC      = 	gcc
+CC      = 	clang
 HEADER  = 	includes/
 FLAGS   = 	-Wall -Wextra -Werror
 SRCDIR  = 	srcs/
@@ -28,9 +28,9 @@ SRC		=	check/ft_isalnum.c				\
 			conv/ft_itoa.c					\
 			conv/ft_tolower.c				\
 			conv/ft_toupper.c				\
-			tab/ft_sort_params.c				\
-			tab/ft_tabcpy.c						\
-			get_next_line/get_next_line.c					\
+			tab/ft_sort_params.c			\
+			tab/ft_tabcpy.c					\
+			get_next_line/get_next_line.c	\
 			lst/ft_lstadd.c					\
 			lst/ft_lstaddend.c				\
 			lst/ft_lstdel.c					\
@@ -88,21 +88,18 @@ SRC		=	check/ft_isalnum.c				\
 			str/ft_strsub.c					\
 			str/ft_strtrim.c
 
-# colors
-GRN		=   "\033[0;32m"
-RED		=   "\033[0;31m"
-CYN		=   "\033[0;36m"
-NC		=   "\033[0m"
 
 SRCS	= $(addprefix $(SRCDIR), $(SRC))
 OBJS	= $(addprefix $(OBJDIR), $(SRC:.c=.o))
 
 all: $(OBJDIR) $(NAME)
 
+INDEX = 0
+
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@echo $(GRN)"libft.a created"$(NC)
+	@echo "\nCompilation done for libft.a\n"
 	@make -C srcs/ft_printf
 
 $(OBJDIR):
@@ -110,16 +107,17 @@ $(OBJDIR):
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)libft.h
 	@$(CC) -o $@ -c $< $(FLAGS) -I $(HEADER)
-	@echo $(CYN)$@" done"$(NC)
+	$(eval INDEX=$(shell printf "%d" $$(($(INDEX)+1))))
+	@printf "[%02d/71] Compiling (C) %s...\n" $(INDEX) $@
 
 clean:
 	@rm -rf objs
-	@echo $(RED)"libft/objs directory clean"$(NC)
+	@echo "Cleaning objects..."
 	@make -C srcs/ft_printf clean
 
 fclean: clean
 	@rm -rf $(NAME)
-	@echo $(RED)"libft.a deleted"$(NC)
+	@echo "Cleaning binaries..."
 	@make -C srcs/ft_printf fclean
 
 re: fclean all
